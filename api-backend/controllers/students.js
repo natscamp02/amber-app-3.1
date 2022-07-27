@@ -82,7 +82,7 @@ exports.updateStudent = async (req, res) => {
 
 exports.deleteStudent = async (req, res) => {
     try {
-        await Student.findByIdAndUpdate(req.params.id);
+        await Student.findByIdAndDelete(req.params.id);
 
         //Can also be 204 if you are not returning anything in the response
         res.status(204).json({
