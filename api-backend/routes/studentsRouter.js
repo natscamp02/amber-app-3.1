@@ -13,7 +13,7 @@ router.route('/').get(getAllStudents).post(createStudent);
 router
     .route('/:id')
     .get(getStudentByID)
-    .put(updateStudent)
+    .patch(updateStudent)
     .delete(deleteStudent);
 
 module.exports = router;

@@ -8,29 +8,30 @@ import { APIResponse } from '../apiResponse';
     providedIn: 'root',
 })
 export class StudentService {
-    constructor(private http: HttpClient) {}
-    apiUrl = environment.apiUrl;
+    private APIUrl = environment.apiUrl;
+
+    constructor(private http: HttpClient) { }
 
     getAllStudents(): Observable<APIResponse> {
-        return this.http.get<APIResponse>(`${this.apiUrl}/`);
+        return this.http.get<APIResponse>(`${this.APIUrl}/`);
     }
 
     getStudentByID(studentID: string): Observable<APIResponse> {
-        return this.http.get<APIResponse>(`${this.apiUrl}/${studentID}`);
+        return this.http.get<APIResponse>(`${this.APIUrl}/${studentID}`);
     }
 
     createStudent(postBody: any): Observable<APIResponse> {
-        return this.http.post<APIResponse>(`${this.apiUrl}/`, postBody);
+        return this.http.post<APIResponse>(`${this.APIUrl}/`, postBody);
     }
 
     updateStudent(studentID: string, postBody: any): Observable<APIResponse> {
         return this.http.patch<APIResponse>(
-            `${this.apiUrl}/${studentID}`,
+            `${this.APIUrl}/${studentID}`,
             postBody
         );
     }
 
     deleteStudent(studentID: string): Observable<APIResponse> {
-        return this.http.delete<APIResponse>(`${this.apiUrl}/${studentID}`);
+        return this.http.delete<APIResponse>(`${this.APIUrl}/${studentID}`);
     }
 }
